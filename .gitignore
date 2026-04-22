@@ -1,0 +1,27 @@
+# =========================
+# BACKEND (Spring Boot)
+# =========================
+backend/target/
+backend/.mvn/
+*.log
+
+# Config sensible
+backend/src/main/resources/application.properties
+.env
+
+# =========================
+# FRONTEND (React)
+# =========================
+frontend/node_modules/
+frontend/build/
+frontend/.env
+
+# =========================
+# IDE
+# =========================
+.idea/
+.vscode/
+*.iml
+
+# OS
+.DS_Store
