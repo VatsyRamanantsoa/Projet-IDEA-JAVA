@@ -5,9 +5,7 @@ backend/target/
 backend/.mvn/
 *.log
 
-# Config sensible
-backend/src/main/resources/application.properties
-.env
+
 
 # =========================
 # FRONTEND (React)
