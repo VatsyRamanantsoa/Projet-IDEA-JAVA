@@ -14,20 +14,34 @@ export default function Login({ onBack, onLoginSuccess }) {
   const [isLoading, setIsLoading] = useState(false);
   const [focusedField, setFocusedField] = useState(null);
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  const handleSubmit = async (e) => {
+  e.preventDefault();
+  setIsLoading(true);
 
-    setTimeout(() => {
-      // ✅ Changement : utilisation directe du username
-      const user = {
-        name: username,
-        username: username
-      };
-      onLoginSuccess(user);
-      setIsLoading(false);
-    }, 1200);
-  };
+  try {
+    const res = await login({
+      username,
+      password
+    });
+
+    console.log("USER :", res.data);
+
+    localStorage.setItem(
+      "user",
+      JSON.stringify(res.data)
+    );
+
+    navigate("/dashboard");
+
+  } catch (err) {
+    console.log(
+      "Login error:",
+      err.response?.data || err.message
+    );
+  } finally {
+    setIsLoading(false);
+  }
+};
 
   return (
     <div className="min-h-screen bg-mauve-300 flex items-center justify-center p-4 relative overflow-hidden font-sans">
