@@ -4,6 +4,7 @@ import com.example.projet_IDEA.dto.LoginDTO;
 import com.example.projet_IDEA.dto.UserDTO;
 import com.example.projet_IDEA.entity.User;
 import com.example.projet_IDEA.service.UserService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
