@@ -15,7 +15,7 @@ export default function Dashboard() {
   const fetchProjectsCount = async () => {
     try {
       const response = await projetApi.getAll();
-      setProjectsCount(response.data?.length || 0);
+    //  setProjectsCount(response.data?.length || 0);
     } catch (error) {
       console.error('Error fetching projects count:', error);
     } finally {
