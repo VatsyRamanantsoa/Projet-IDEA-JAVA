@@ -2,7 +2,7 @@
   import computer from "../../assets/images/retrocomputer.webp"
   import { FaArrowLeft } from "react-icons/fa";
   import { Link,useNavigate } from "react-router-dom";
-   import { login } from "../../api/auth.api";
+import { login } from "../../api/auth.api";
 
 
 
@@ -36,13 +36,12 @@ const handleSubmit = async (e) => {
     
     navigate("/dashboard");
 
-  } catch (err) {
-    console.log("Login error:", err.response?.data);
-     console.log("DETAIL ERROR:", error.response?.data || error.message);
-    
+  }catch (err) {
+  console.log("Login error:", err.response?.data);
+  console.log("DETAIL ERROR:", err.response?.data || err.message);
   } finally {
-    setIsLoading(false);
-  }
+  setIsLoading(false);
+}
 };
 
 
