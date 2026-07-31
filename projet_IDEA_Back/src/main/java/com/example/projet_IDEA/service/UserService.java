@@ -43,15 +43,15 @@ public class UserService {
 
     public User login(String username, String password) {
 
-        User user = userRepository.findByUsername(username)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    User user = userRepository.findByUsername(username)
+            .orElseThrow(() -> new RuntimeException("Utilisateur introuvable"));
 
-        if (!user.getPassword().equals(password)) {
-            throw new RuntimeException("Wrong password");
-        }
-
-        return user;
+    if (!user.getPassword().equals(password)) {
+        throw new RuntimeException("Mot de passe incorrect");
     }
+
+    return user;
+}
 
 }
 

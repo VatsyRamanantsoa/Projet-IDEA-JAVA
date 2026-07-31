@@ -45,8 +45,22 @@ public class UserController {
     }
     //Loginn
     @PostMapping("/login")
-    public User login(@RequestBody LoginDTO dto) {
-        return userService.login(dto.getUsername(), dto.getPassword());
+    public ResponseEntity<?> login(@RequestBody LoginDTO dto) {
+
+        try {
+            User user = userService.login(
+                    dto.getUsername(),
+                    dto.getPassword()
+            );
+
+            return ResponseEntity.ok(user);
+
+        } catch (RuntimeException e) {
+
+            return ResponseEntity
+                    .status(401)
+                    .body(e.getMessage());
+        }
     }
 
 }
